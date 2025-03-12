@@ -25,6 +25,13 @@ const taskList = {
       this.newTask = {};
       localStorage.setItem("tasks", JSON.stringify(this.tasks));
     },
+    storeTask() {
+    localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    }
   },
+  created() {
+    this.tasks = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : this.tasks;
+  }
 };
+
 Vue.createApp(taskList).mount("#app");
